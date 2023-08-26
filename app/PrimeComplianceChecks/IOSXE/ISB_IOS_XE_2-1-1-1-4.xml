@@ -1,0 +1,56 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_2_1_1_1_41_9_2021_12_13_54_206">
+    <Title><![CDATA[ISB_IOS_XE_2-1-1-1-4]]></Title>
+    <Description><![CDATA[Set 'seconds' for 'ip ssh timeout']]></Description>
+    
+    <CreatedOn><![CDATA[1630516434304]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630532674573]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_2_1_1_1_4">
+        <Title><![CDATA[ISB_IOS_XE_2-1-1-1-4]]></Title>
+        <Description><![CDATA['seconds' for 'ip ssh timeout' is set to 60]]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string ip ssh time-out 60]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING ip ssh timeout settings]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING ip ssh timeout settings]]></Message>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[ip ssh time-out 60]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

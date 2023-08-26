@@ -1,0 +1,56 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_1_91_9_2021_11_56_13_499">
+    <Title><![CDATA[ISB_IOS_XE_1-1-9]]></Title>
+    <Description><![CDATA[Set 'aaa accounting exec']]></Description>
+    
+    <CreatedOn><![CDATA[1630515373594]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630531397531]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_1_9">
+        <Title><![CDATA[ISB_IOS_XE_1-1-9]]></Title>
+        <Description><![CDATA[Set 'aaa accounting exec']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string aaa accounting exec]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING 'aaa accounting exec']]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING 'aaa accounting exec']]></Message>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[aaa accounting exec]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

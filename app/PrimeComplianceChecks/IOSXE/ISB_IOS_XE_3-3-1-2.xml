@@ -1,0 +1,75 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_3_3_1_21_9_2021_12_28_37_433">
+    <Title><![CDATA[ISB_IOS_XE_3-3-1-2]]></Title>
+    <Description><![CDATA[set 'key']]></Description>
+    
+    <CreatedOn><![CDATA[1630517317533]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630533748874]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_3_3_1_2">
+        <Title><![CDATA[ISB_IOS_XE_3-3-1-2]]></Title>
+        <Description><![CDATA[Set 'key']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression router eigrp (.*)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+             <SubmodeRegExp><![CDATA[router eigrp (.*)]]></SubmodeRegExp>
+            <Scope>SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[router eigrp (.*)]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string key]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING EIGRP key]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING EIGRP key]]></Message>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[key ]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

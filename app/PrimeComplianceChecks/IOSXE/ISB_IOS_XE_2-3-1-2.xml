@@ -1,0 +1,56 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_2_3_1_21_9_2021_12_23_31_604">
+    <Title><![CDATA[ISB_IOS_XE_2-3-1-2]]></Title>
+    <Description><![CDATA[Set 'ntp authentication-key']]></Description>
+    
+    <CreatedOn><![CDATA[1630517011622]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630533296662]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_2_3_1_2">
+        <Title><![CDATA[ISB_IOS_XE_2-3-1-2]]></Title>
+        <Description><![CDATA[Set 'ntp authentication-key']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string ntp authentication-key]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING ntp authentication-key]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING ntp authentication-key]]></Message>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[ntp authentication-key]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

@@ -1,0 +1,56 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_5_31_9_2021_12_7_24_437">
+    <Title><![CDATA[ISB_IOS_XE_1-5-3]]></Title>
+    <Description><![CDATA[Unset 'public' for 'snmp-server community']]></Description>
+    
+    <CreatedOn><![CDATA[1630516044550]]></CreatedOn>
+    <ModifiedOn><![CDATA[1632232562495]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_5_3">
+        <Title><![CDATA[ISB_IOS_XE_1-5-3]]></Title>
+        <Description><![CDATA[Unset 'public' for 'snmp-server community']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression snmp-server community public]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[Unset 'public' for 'snmp-server community']]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[Unset 'public' for 'snmp-server community']]></Message>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[snmp-server community public]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

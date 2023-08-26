@@ -1,0 +1,75 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_2_91_9_2021_12_2_33_987">
+    <Title><![CDATA[ISB_IOS_XE_1-2-9]]></Title>
+    <Description><![CDATA[Set 'exec-timeout' to less than or equal to 10 minutes 'line vty']]></Description>
+    
+    <CreatedOn><![CDATA[1630515754070]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630531817401]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_2_10">
+        <Title><![CDATA[ISB_IOS_XE_1-2-9]]></Title>
+        <Description><![CDATA['exec-timeout' set to 10 minutes 'line vty']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression line vty (.*)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+             <SubmodeRegExp><![CDATA[line vty.*]]></SubmodeRegExp>
+            <Scope>SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[line vty (.*)]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string session-timeout 10]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING session-timeout 10 on LINE VTY <1.1>]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING session-timeout 10 on LINE VTY <1.1>]]></Message>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[session-timeout 10]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

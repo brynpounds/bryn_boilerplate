@@ -1,0 +1,93 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_3_3_4_11_9_2021_12_34_19_257">
+    <Title><![CDATA[ISB_IOS_XE_3-3-4-1]]></Title>
+    <Description><![CDATA[Set 'neighbor password']]></Description>
+    
+    <CreatedOn><![CDATA[1630517659359]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630534154797]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_3_3_4_1">
+        <Title><![CDATA[ISB_IOS_XE_3-3-4-1]]></Title>
+        <Description><![CDATA[Set 'neighbor password']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression router bgp (.*)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+             <SubmodeRegExp><![CDATA[router bgp .*]]></SubmodeRegExp>
+            <Scope>SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[router bgp (.*)]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must match the expression neighbor (\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b) remote-as .*]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[neighbor (\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b) remote-as .*]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must match the expression neighbor <2.1> password]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING BGP neighbor <2.1> password]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING BGP neighbor <2.1> password]]></Message>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[neighbor <2.1> password]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

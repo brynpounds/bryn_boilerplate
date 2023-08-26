@@ -1,0 +1,57 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_4_31_9_2021_12_5_22_451">
+    <Title><![CDATA[ISB_IOS_XE_1-4-3]]></Title>
+    <Description><![CDATA[Set 'username secret' for all local users]]></Description>
+    
+    <CreatedOn><![CDATA[1630515922524]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630532144182]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_4_3">
+        <Title><![CDATA[ISB_IOS_XE_1-4-3]]></Title>
+        <Description><![CDATA[Set 'username secret' for all local users]]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of sh run | i username must contain the string secret]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[MISSING Password Secret 5]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING Password Secret 5]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[sh run | i username]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[secret]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

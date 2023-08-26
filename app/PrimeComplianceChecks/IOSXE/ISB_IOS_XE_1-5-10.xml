@@ -1,0 +1,58 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_5_101_9_2021_12_5_55_646">
+    <Title><![CDATA[ISB_IOS_XE_1-5-10]]></Title>
+    <Description><![CDATA[Require 'aes 128' as minimum for 'snmp-server user' when using SNMPv3]]></Description>
+    
+    <CreatedOn><![CDATA[1630515955726]]></CreatedOn>
+    <ModifiedOn><![CDATA[1630532193238]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_5_10">
+        <Title><![CDATA[ISB_IOS_XE_1-5-10]]></Title>
+        <Description><![CDATA['aes 128' is set as minimum for 'snmp-server user' when
+using SNMPv3]]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show snmp-server user must contain the string DES]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[AES is not enabled on SNMPv3 user]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[AES is not enabled on SNMPv3 user]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show snmp-server user]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[DES]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

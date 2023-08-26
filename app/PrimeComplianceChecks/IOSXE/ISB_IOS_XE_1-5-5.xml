@@ -1,0 +1,57 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_ISB_IOS_XE_1_5_51_9_2021_12_11_29_951">
+    <Title><![CDATA[ISB_IOS_XE_1-5-5]]></Title>
+    <Description><![CDATA[Set the ACL for each 'snmp-server community']]></Description>
+    
+    <CreatedOn><![CDATA[1630516290051]]></CreatedOn>
+    <ModifiedOn><![CDATA[1632232608608]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_ISB_IOS_15_1_5_5">
+        <Title><![CDATA[ISB_IOS_XE_1-5-5]]></Title>
+        <Description><![CDATA[Set the ACL for each 'snmp-server community']]></Description>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of sh run | i snmp-server community must contain the string SNMP_ACL_RO]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>1</Severity>
+            <ViolationMessage><![CDATA[snmp-server community does have SNMP_ACL_RO acl]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[snmp-server community does have SNMP_ACL_RO acl]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[sh run | i snmp-server community]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[SNMP_ACL_RO]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>
