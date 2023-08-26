@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DNA Center Compliance Lite Home</title>
+  </head>
+    {% extends "template.html" %}
+    {% block content %}    
+    <h1> DNA Center Compliance </h1>
+    <img src="/static/chiefs.jpg" alt="Chiefs image" width="100%" height="auto" />
+    <p>To "git" started (see what I did there)... <br>
+    git clone https://github.com/brynpounds/ <br>
+    docker-compose up --build bryn_boilerplate<br><br>
+    </p>
+    <p> Import files to check out for swagger... <br>
+    ./bryn_boilerplate/app/app.py<br>
+    ./bryn_boilerplate/API/KeithCode/views.py<br>
+    ./bryn_boilerplate/app/API/__init__.py<br></p>
+    
+    <p> Import files to check out for flask... <br>
+    ./bryn_boilerplate/app/app.py<br>
+    ./bryn_boilerplate/API/template/template.html (the header) <br>
+    ./bryn_boilerplate/API/template/*.html<br><br></p>
+    <p> So here's how all of this works - lets use our weather checker as the example use case. <br>
+    Step1 - You write your API's.  ("API First").  See ./bryn_boilerplate/API/KeithCode/views.py <br>
+    You probably want a schema and a controller... <br>
+    <img src="/static/shot1.png" alt="Chiefs image" width="100%" height="auto" /></p>
+    <br><br>
+    <p> You need to register your Controller in a couple of places...<br>
+    1:  in app.py, you need to import it<br>
+          <img src="/static/shot4.png" alt="Chiefs image" width="100%" height="auto" /><br><br>
+    2: Also, in app.py, you need to call it later...<br>
+          <img src="/static/shot5.png" alt="Chiefs image" width="100%" height="auto" /><br><br>  
+    3: Finally, add your Controller to "app/API/__init__.py" <br>
+          <img src="/static/shot6.png" alt="Chiefs image" width="100%" height="auto" /><br><br>
+    4: Now simply restart your container, but save time by only using "docker-compose up" this time. <br><br>
+    <img src="/static/shot7.png" alt="Chiefs image" width="100%" height="auto" /></p>    
+    <p>Now your API should be available in swagger (http://localhost:8080/swagger-ui/).  Look at you - a proper developer! <br>
+    <img src="/static/shot2.png" alt="Chiefs image" width="100%" height="auto" /></p>
+    <p> Click "Try it out", change the inputs if you feel like it, and then "Execute" <br>
+    <img src="/static/shot3.png" alt="Chiefs image" width="100%" height="auto" /> <br>
+    Watch out.  You're developing software the correct way.  Get your functions (API's) working first, then you can think about your UI, which we're about to do now</p>
+    
+    <p> Now let's put a UI in front.  You need 2 things... <br>
+    1: You need a python function in app.py designed to send (return) code to...<br>
+    2: your HTML page. <br><br>
+    So at this point, we've written the API call, and provided proper swagger documentation. <br>
+    Now we'll write a little code which calls our brand new shiny API that's fully documented in SWAGGER, which we will then send (return) that to the html page to use. <br>
+    In app.py, let's write our code...<br>
+    <img src="/static/shot8.png" alt="Chiefs image" width="100%" height="auto" /> <br><br>
+    A few things to note here...  the "/weather" is where this URL lives on the "web server" (Flask is really an API generator, but many use if for an HTML server as well.)<br><br>
+    Note the "render_template" - it's calling "weather.html" which must live in the "templates" folder.  We're going to send that html page 2 things..."message" and "testing".<br>
+    <img src="/static/shot9.png" alt="Chiefs image" width="100%" height="auto" /> <br><br></p>
+    <p>Remember that anytime you make changes, you need to stop docker-compose and do another "docker-compose up" so your changes will be seen. <br><br></p>
+    <img src="/static/shot10.png" alt="Chiefs image" width="100%" height="auto" /> <br><br></p>
+    <p> Notice we're using some simple python code within the HTML page.  Now let's pull out some specific values rather than scare people with raw JSON.  (could be worse - could have been XML)<br>
+    Hopefully you understand how to iterate through JSON.  We're going to pull out the City and Description of the current weather.  <br>
+    testing['name'], and testing['weather'][0]['description'] <br>
+    <img src="/static/shot11.png" alt="Chiefs image" width="100%" height="auto" /> <br>
+    <img src="/static/shot12.png" alt="Chiefs image" width="100%" height="auto" /> <br><br></p>
+    
+    <p> That's as far as I'm going to take this example for now.  Feel free to check out a few more examples in this boilerplate.<br>
+    The "Reports" page is a good example that has a little more python inside of "report.html" <br>
+    It's also a good example of a function in app.py that would accept both an HTTP GET & HTTP POST.<br><br>
+    Happy Coding!!!  8-) <br></p>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+        
+    {% endblock %}
+
+    
+    
+  </body>
+</html>

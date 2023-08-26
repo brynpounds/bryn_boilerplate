@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    {% extends "template.html" %}
+    {% block content %}  
+    <head>
+    <title>Flask Static Demo</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>{{message}}</h1>
+    <p>
+    {% for item in reports.split("\n") %}
+      {% for thing in item.split(" ") %}
+        {% if ".pdf" in thing %}
+          <a href="/static/{% print(thing) %} " target="_blank">{% print(thing) %}</a></br>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </p>  
+    <script src="/static/serve.js" charset="utf-8"></script>
+  <form method="post">
+  <p> Click submit to run a new report </p>
+    <button type="submit">Submit</button>
+  </form>
+  </body>
+    {% endblock %}
+  </body>
+</html>

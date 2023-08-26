@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Configure the Compliance Lite Container</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+     <h1>{% block title %} Please enter DNA Center settings {% endblock %}</h1>
+     
+     <p> {% print(DNAC_URL, DNAC_USER) %} </p>
+     <p> {% print(messages) %} </p>
+     
+     <div align="left" class="container">
+        <strong><nav>
+        <font size="3px">
+    <form method="post">
+        <label for="title">DNA Center IP Address (IP only)</label>
+        <br>
+        <input type="text" name="ip_address"
+               placeholder="10.10.10.10"
+               value="{{ request.form['ip_address'] }}"></input>
+        <br><p></p>
+        <label for="title">DNA Center Username</label>
+        <br>
+        <input type="text" name="username"
+               placeholder="admin"
+               value="{{ request.form['username'] }}"></input>
+        <br><p></p>
+        <label for="title">DNA Center Password</label>
+        <br>
+        <input type="text" name="password"
+               placeholder="C1sc012345"
+               value="{{ request.form['password'] }}"></input>
+        <br><p></p>
+        <label for="content">Submit</label>
+        <button type="submit">Submit</button>
+    </form>
+    </font>
+    </nav></strong>
+    {% endblock %}
+  </body>
+</html>
+

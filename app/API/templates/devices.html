@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    {% extends "template.html" %}
+    {% block content %}    
+    <h1> DNA Center Compliance </h1>
+    <p align="left"> All DNAC DEvices... </p>
+    <p>
+    {% for item in message %}
+    {% print(item['hostname']) %} </br>
+    {% endfor %}
+    </p>
+    {% endblock %}
+  </body>
+</html>
+
